@@ -1,0 +1,14 @@
+Circuit ID;Circuit Name;Device ID;Device Name;Parent Node;MAC;IPv4;IPv6;Download Min Mbps;Upload Min Mbps;Download Max Mbps;Upload Max Mbps;Comment
+3000;ONT_Huawei;1;ONT_Huawei;OLT_Huawei;;;;25;5;300;50;Plan 100-300
+3001;TVWS_Master;2;TVWS_Master;OLT_Huawei;;;;25;5;200;30;Plan 100-300
+3002;ONT_Fiberhome;3;ONT_Fiberhome;OLT_Fiberhome;;;;25;5;250;40;Plan 100-300
+3003;Server_CJ;4;Server_CJ;Switch_Cisco;;;;25;5;100;20;Plan 100-300
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;
+;;;;;;;;;;;;

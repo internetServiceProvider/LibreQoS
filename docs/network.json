@@ -1,0 +1,62 @@
+{
+	"MikroTik": 
+	{
+	"downloadBandwidthMbps":1000,
+	"uploadBandwidthMbps": 1000,
+	"type": "Site",
+	"children":
+		{
+			"OLT_Huawei":
+					{
+					"downloadBandwidthMbps": 400,
+					"uploadBandwidthMbps": 400,
+					"type": "Site",
+					"children":
+						{
+							"ONT_Huawei":
+								{
+								"downloadBandwidthMbps": 400,
+								"uploadBandwidthMbps": 400,
+								"type":"AP"
+								},
+							"TVWS_Master":
+								{
+								"downloadBandwidthMbps": 300,
+								"uploadBandwidthMbps": 300,
+								"type": "AP"
+								}
+						}
+					},
+			"OLT_Fiberhome":
+					{
+					"downloadBandwidthMbps":300,
+					"uploadBandwidthMbps": 300,
+					"type": "Site",
+					"children":
+						{
+							"ONT_Fiberhome":
+								{
+								"downloadBandwidthMbps":400,
+								"uploadBandwidthMbps": 400,
+								"type": "AP"
+								}
+						}
+					},
+			"Switch_Cisco":
+					{
+					"downloadBandwidthMbps": 300,
+					"uploadBandwidthMBps": 300,
+					"type": "Site",
+					"children":
+						{
+							"Server_CJ":
+								{
+								"downloadBandwidthMbps": 200,
+								"uploadBandwidthMbps": 200,
+								"type": "AP"
+								}
+						}
+					}
+		}
+	}
+}

@@ -82,3 +82,85 @@ El archivo de **shaped devices** en LibreQoS es fundamental porque define los di
 | 3003       | Server_CJ      | 4         | Server_CJ      | Switch_Cisco   |     |      |      | 25                 | 5                | 100                | 20               |
 
 ```
+## Libreqos.conf
+
+```toml
+toml
+version = "1.5"
+lqos_directory = "/opt/libreqos/src"
+node_id = "6f74b9363618059aa512e459e3821059709b8cce0ee5c2152f4433496a5ca4ce"
+node_name = "LibreQoS"
+
+```
+
+- **version**: Define la versión del formato de configuración
+- **lqos_directory**: Ruta donde están los archivos fuente de LibreQoS
+- **node_id**: Identificador único del nodo (hash SHA-256)
+- **node_name**: Nombre descriptivo del nodo
+
+## Sección [tuning] - Optimización de Red
+
+Esta es una de las secciones más críticas:
+
+```toml
+
+toml
+stop_irq_balance = true
+netdev_budget_usecs = 8000
+netdev_budget_packets = 300
+disable_offload = ["gso", "tso", "lro", "sg", "gro"]
+
+```
+
+- **stop_irq_balance**: Detiene el balanceador automático de interrupciones para control manual
+- **netdev_budget**: Controla cuánto tiempo/paquetes puede procesar el kernel por ciclo
+- **disable_offload**: Desactiva optimizaciones de hardware que pueden interferir con QoS:
+    - GSO/TSO: Segmentación de paquetes grandes
+    - LRO/GRO: Agregación de paquetes recibidos
+    - SG: Scatter-gather (fragmentación)
+
+## Sección [bridge] - Configuración de Interfaces
+
+```toml
+
+toml
+use_xdp_bridge = false
+to_internet = "eno2"
+to_network = "eno1"
+
+```
+
+- **to_internet**: Interfaz hacia el proveedor de internet
+- **to_network**: Interfaz hacia la red local
+- **use_xdp_bridge**: XDP (eXpress Data Path) para procesamiento de paquetes de alta velocidad
+
+## Sección [queues] - Control de Ancho de Banda
+
+```toml
+
+toml
+default_sqm = "cake diffserv4"
+uplink_bandwidth_mbps = 1250
+downlink_bandwidth_mbps = 2500
+
+```
+
+- **default_sqm**: Algoritmo de gestión de colas (CAKE con DiffServ)
+- **uplink/downlink_bandwidth**: Límites de ancho de banda en Mbps
+- **monitor_only**: Si está en true, solo monitorea sin aplicar límites
+
+## Sección [ip_ranges] - Control de Acceso
+
+```toml
+
+toml
+allow_subnets = [
+    "172.16.0.0/12",
+    "10.0.0.0/8",
+    "100.64.0.0/10",
+    "192.168.0.0/16"
+]
+
+```
+
+Define las redes privadas RFC 1918 y CGNAT (100.64.0.0/10) que el sistema gestionará.

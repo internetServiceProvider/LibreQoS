@@ -16,8 +16,8 @@ Para proceder con la instalacion e implementacion del servicio LibreQoS se requi
 ## Diseño de red:
 
 **LibreQoS debe estar en medio** del tráfico entre el router de borde (el que conecta con internet, con NAT y firewall usualmente) y el router o switch central de tu red (donde se distribuye el tráfico hacia clientes), por lo que que **todo el tráfico** que entra/sale de tu red **debe pasar por LibreQoS** para que este pueda aplicar sus políticas de control.
+![image](https://github.com/user-attachments/assets/f8f3da9b-351f-45a8-af30-b9d9d885cfe0)
 
-[](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfHjyXcPrFdSI1Qm1jr0UdwKmql9NEbbVFVD9n6Hyr3R6tH4eqJgzdZZ_vQP5HV1Z4sYkK8DMnERFAhjDWTMbjkMBhQLpnKdVRR6_i5ignn4WKHJK0Qd2cU6atUUQLgRmffZfA4?key=d8JKuWjiPJIElXvPhSyIUA)
 
 ## Bridge:
 
